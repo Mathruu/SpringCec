@@ -14,7 +14,7 @@ public class Tenis {
     private String modelo;
     private String cor;
     private String tamanho;
-    private String preco;
+    private Float preco;
 
     public long getId() {
         return id;
@@ -56,11 +56,11 @@ public class Tenis {
         this.tamanho = tamanho;
     }
 
-    public String getPreco() { 
+    public Float getPreco() { 
         return preco;
     }
 
-    public void setPreco(String preco) {
+    public void setPreco(Float preco) {
         this.preco = preco;
     }
 }
