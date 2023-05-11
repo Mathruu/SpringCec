@@ -1,5 +1,6 @@
 package com.example.springcec.resource;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,7 @@ public class TenisResource {
         if (!tenisController.isTenisValido(tenis)) {
             return new ResponseEntity("O modelo do tênis é invalálido!", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        tenis.setDataHoraCadastro(new Date());
         tenis = tenisRepository.save(tenis);
         return new ResponseEntity<Tenis>(tenis, HttpStatus.OK);
     }

@@ -1,6 +1,11 @@
 package com.example.springcec.dominio;
 
 import jakarta.persistence.Entity;
+
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +20,9 @@ public class Tenis {
     private String cor;
     private String tamanho;
     private Float preco;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    private Date dataHoraCadastro;
 
     public long getId() {
         return id;
@@ -62,5 +70,17 @@ public class Tenis {
 
     public void setPreco(Float preco) {
         this.preco = preco;
+    }
+
+    public Date getDataHoraCadastro() { 
+        return dataHoraCadastro;
+    }
+
+    public void setDataHoraCadastro(Date dataHoraCadastro) {
+        this.dataHoraCadastro = dataHoraCadastro;
+    }
+
+    public Tenis() {
+        this.dataHoraCadastro = new Date();
     }
 }

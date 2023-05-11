@@ -5,4 +5,6 @@ import com.example.springcec.dominio.Tenis;
 
 public interface TenisRepository extends JpaRepository<Tenis, Long> {
     
+    public Tenis getByModelo(String modelo);
+
 }
