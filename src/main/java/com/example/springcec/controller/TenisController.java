@@ -9,7 +9,7 @@ public class TenisController {
     }
 
     private boolean isModeloValido(Tenis tenis) {
-        if ((tenis.getModelo().isEmpty())) {
+        if ((tenis.getModelo().isEmpty()) || (tenis.getMarca().isEmpty())) {
             return false;
         }
         return true;
