@@ -20,6 +20,7 @@ public class Tenis {
     private String cor;
     private String tamanho;
     private Float preco;
+    private int quantidade;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private Date dataHoraCadastro;
@@ -82,5 +83,13 @@ public class Tenis {
 
     public Tenis() {
         this.dataHoraCadastro = new Date();
+    }
+
+    public int getQuantidade() { 
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 }

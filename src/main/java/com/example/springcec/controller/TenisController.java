@@ -9,20 +9,9 @@ public class TenisController {
     }
 
     private boolean isModeloValido(Tenis tenis) {
-        if ((tenis.getModelo().isEmpty()) || tenis.getModelo().length() < 2) {
+        if ((tenis.getModelo().isEmpty())) {
             return false;
         }
         return true;
     }
-
-    public boolean isMarcaValida(Tenis tenis) {
-        if ((tenis.getMarca().isEmpty()) || tenis.getMarca().length() < 2) {
-            return false;
-        }
-        return true;
-    }
-
-    //public boolean isModeloUnico(Tenis tenis) {
-        // Buscar no banco de dados se já existe um modelo igual
-    //}
 }

@@ -36,8 +36,8 @@ public class TenisResource {
     @PostMapping(value = "/create")
     public ResponseEntity<Tenis> create(@RequestBody Tenis tenis) {
         TenisController tenisController = new TenisController();
-        if (!tenisController.isTenisValido(tenis)) {
-            return new ResponseEntity("O modelo do tênis é invalálido!", HttpStatus.INTERNAL_SERVER_ERROR);
+        if (!tenisController.isTenisValido(tenis) || tenisRepository.findByCor(tenis.getCor()) != null) {
+            return new ResponseEntity("O Cor do tênis é invalálida!", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         tenis.setDataHoraCadastro(new Date());
         tenis = tenisRepository.save(tenis);
