@@ -5,7 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.springcec.dominio.Tenis;
 
 public interface TenisRepository extends JpaRepository<Tenis, Long> {
-    
-    public Tenis findByCor(String cor);
-
+    Tenis findByModelo(String modelo);
 }
