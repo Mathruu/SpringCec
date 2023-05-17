@@ -50,11 +50,15 @@ public class TenisResource {
         return tenisRepository.findById(id);
     }
 
-    @PutMapping("/edit")
-    public ResponseEntity<Tenis> editar(@RequestBody Tenis tenis) {
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<Tenis> editar(@PathVariable Long id, @RequestBody Tenis tenis) {
         TenisController tenisController = new TenisController();
+        Tenis tenisExistente = tenisRepository.findByid(id);
         if (!tenisController.isTenisValido(tenis)) {
             return new ResponseEntity("O modelo do tênis é invalálido!", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        if (!tenis.getModelo().equals(tenisExistente.getModelo())) {
+            return new ResponseEntity("A edição do atributo 'modelo' não é permitida.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         tenis.setDataHoraCadastro(new Date());
         tenis = tenisRepository.save(tenis);
@@ -73,3 +77,4 @@ public class TenisResource {
         return optionalTenis.get();
     }
 }
+

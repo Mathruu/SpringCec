@@ -6,4 +6,5 @@ import com.example.springcec.dominio.Tenis;
 
 public interface TenisRepository extends JpaRepository<Tenis, Long> {
     Tenis findByModelo(String modelo);
+    Tenis findByid(Long id);
 }
