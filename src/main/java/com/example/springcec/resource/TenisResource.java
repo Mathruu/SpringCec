@@ -55,7 +55,7 @@ public class TenisResource {
         TenisController tenisController = new TenisController();
         Tenis tenisExistente = tenisRepository.findByid(id);
         if (!tenisController.isTenisValido(tenis)) {
-            return new ResponseEntity("O modelo do tênis é invalálido!", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity("O modelo do tênis é inválido!", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         if (!tenis.getModelo().equals(tenisExistente.getModelo())) {
             return new ResponseEntity("A edição do atributo 'modelo' não é permitida.", HttpStatus.INTERNAL_SERVER_ERROR);
